@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+// Route::post('/books', 'BookController@store');
+Route::prefix('books')->group(function () {
+    Route::post('/store', [BookController::class, 'store'])->name('book.store');
+    Route::patch('/update/{book}', [BookController::class, 'update'])->name('book.update');
+
 });
