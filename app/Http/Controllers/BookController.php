@@ -35,7 +35,9 @@ class BookController extends Controller
         // ]);
         // Book::create($data);
 
-        Book::create($this->validateRequest());
+        $book = Book::create($this->validateRequest());
+        // return redirect('/books/show/' . $book->id);
+        return redirect($book->path());
     }
 
     /**
@@ -66,6 +68,8 @@ class BookController extends Controller
         // $book->update($data);
                 //Refactor
         $book->update($this->validateRequest());
+        // return redirect('/books/show/' . $book->id);
+        return redirect($book->path());
     }
 
     /**
@@ -73,7 +77,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return redirect('/books/index');
     }
 
     public function validateRequest()
