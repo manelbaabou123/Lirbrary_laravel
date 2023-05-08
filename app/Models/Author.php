@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Author extends Model
 {
@@ -15,5 +16,9 @@ class Author extends Model
     // public function setDobAttribute($dob)
     // {
     //     $this->attributes['dob'] = Carbon::parse($dob);
+    // }
+    // public function book(): HasMany
+    // {
+    //     return $this->hasMany(Book::class);
     // }
 }
