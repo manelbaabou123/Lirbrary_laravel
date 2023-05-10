@@ -81,7 +81,7 @@ class BookController extends Controller
         return redirect('/books/index');
     }
 
-    public function validateRequest()
+    protected function validateRequest()
     {
        return request()->validate([
             'title' => 'required',

@@ -12,7 +12,7 @@ class BookManagementTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function data()
+    private function data()
     {
         return [
             'title' => 'Cool Book Title',
