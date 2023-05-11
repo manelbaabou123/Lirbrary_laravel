@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -10,6 +9,7 @@ use Tests\TestCase;
 class BookTest extends TestCase
 {
     use RefreshDatabase;
+
     /** @test */
     public function test_author_id_is_recorded()
     {

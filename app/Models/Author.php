@@ -10,8 +10,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Author extends Model
 {
     use HasFactory;
+
     protected $table = 'authors';
+
     protected $fillable = ['name'];
+
     protected $dates = ['dob'];
     // public function setDobAttribute($dob)
     // {

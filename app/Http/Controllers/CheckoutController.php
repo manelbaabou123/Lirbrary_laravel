@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
@@ -11,6 +10,7 @@ class CheckoutController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function store(Book $book)
     {
         $book->checkout(auth()->user());

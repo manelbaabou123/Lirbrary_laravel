@@ -1,12 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\CheckinController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +41,3 @@ Route::prefix('authors')->group(function () {
 
 Route::post('/checkout/{book}', [CheckoutController::class, 'store'])->name('checkout.store');
 Route::post('/checkin/{book}', [CheckinController::class, 'store'])->name('checkout.store');
-
-

@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use App\Http\Requests\StoreBookRequest;
-use App\Http\Requests\UpdateBookRequest;
 
 class BookController extends Controller
 {
@@ -66,7 +64,7 @@ class BookController extends Controller
         //     'author' => 'required',
         // ]);
         // $book->update($data);
-                //Refactor
+        //Refactor
         $book->update($this->validateRequest());
         // return redirect('/books/show/' . $book->id);
         return redirect($book->path());
@@ -78,12 +76,13 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
+
         return redirect('/books/index');
     }
 
     protected function validateRequest()
     {
-       return request()->validate([
+        return request()->validate([
             'title' => 'required',
             'author_id' => 'required',
         ]);

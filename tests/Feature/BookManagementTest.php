@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class BookManagementTest extends TestCase
@@ -19,6 +18,7 @@ class BookManagementTest extends TestCase
             'author_id' => 1,
         ];
     }
+
     /** @test */
     public function test_a_book_can_be_added_to_the_librery()
     {
@@ -53,7 +53,7 @@ class BookManagementTest extends TestCase
         // $this->withoutExceptionHandling();
         $this->post('/books/store', $this->data());
         $book = Book::first();
-        $responce = $this->patch('/books/update/' . $book->id, [
+        $responce = $this->patch('/books/update/'.$book->id, [
             'title' => 'New Title',
             'author_id' => 'New Author',
         ]);
@@ -69,7 +69,7 @@ class BookManagementTest extends TestCase
         $this->post('/books/store', $this->data());
         $book = Book::first();
         $this->assertCount(1, Book::all());
-        $responce = $this->delete('/books/destroy/' . $book->id);
+        $responce = $this->delete('/books/destroy/'.$book->id);
         $this->assertCount(0, Book::all());
         $responce->assertRedirect('/books/index');
     }

@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\TryCatch;
 
 class CheckinController extends Controller
 {
@@ -12,6 +10,7 @@ class CheckinController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function store(Book $book)
     {
         try {

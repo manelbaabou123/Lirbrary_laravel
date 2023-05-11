@@ -35,6 +35,7 @@ class BookReservationTest extends TestCase
         $this->assertNotNull(Reservation::find(2)->checked_in_at);
         $this->assertEquals(now(), Reservation::find(2)->checked_in_at);
     }
+
     //** @test */
     public function test_a_book_can_be_checked_out()
     {
@@ -47,6 +48,7 @@ class BookReservationTest extends TestCase
         $this->assertEquals($book->id, Reservation::first()->book_id);
         $this->assertEquals(now(), Reservation::first()->checked_out_at);
     }
+
     //** @test */
     public function test_a_book_can_be_returned()
     {
@@ -61,6 +63,7 @@ class BookReservationTest extends TestCase
         $this->assertNotNull(Reservation::first()->checked_in_at);
         $this->assertEquals(now(), Reservation::first()->checked_in_at);
     }
+
     //** @test */
     public function test_if_not_checked_out_exception_is_thrown()
     {

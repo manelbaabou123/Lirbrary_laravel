@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Author;
-use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
+use App\Models\Author;
 
 class AuthorController extends Controller
 {
@@ -63,9 +62,10 @@ class AuthorController extends Controller
     {
         //
     }
+
     protected function validateRequest()
     {
-       return request()->validate([
+        return request()->validate([
             'name' => 'required',
             'dob' => 'required',
         ]);

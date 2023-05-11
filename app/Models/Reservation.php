@@ -11,9 +11,10 @@ class Reservation extends Model
     use HasFactory;
 
     protected $table = 'reservations';
+
     protected $fillable = ['user_id', 'book_id', 'checked_out_at', 'checked_in_at'];
 
-    public function book() : BelongsTo
+    public function book(): BelongsTo
     {
         return $this->belongsTo(Book::class, 'book_id');
     }
